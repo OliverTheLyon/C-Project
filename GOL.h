@@ -15,7 +15,7 @@
  *      board       2D ARRAY OF INT     -Game board size (length * width) 
  *                                       initalized to 0. 
  */
-int Init_game(int length, int width);
+int** Init_game(int length, int width);
 
 
 
@@ -29,11 +29,13 @@ int Init_game(int length, int width);
  *Inputs:
  *      board       2D ARRAY OF INT     -Game board with all the cells 
  *                                       containing either a 1 or a 0.
+ *      hight       INTEGER             -Hight of the matrix
+ *      width       INTEGER             -Width of the matrix
  *
  *Outputs: 
  *      board       2D ARRAY OF INT     -Game board with all the cells 
  *                                       containing either a 1 or a 0.
  *
  */
-int Forward_one_step(int board);
+int** Forward_one_step(int** board, int hight, int width);
 
