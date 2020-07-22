@@ -1,10 +1,12 @@
 
 
 #include <GL/glew.h>
-#include <GL/freeglut.h>
+#include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
 #include <stdio.h>
+#include "convenience.hpp"
+#include "SOIL.h"
 
 using namespace glm;
 
