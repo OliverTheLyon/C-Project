@@ -6,18 +6,15 @@ using namespace std;
 
 int main()
 {
-    int hight = 10;
-    int width = 10; 
+    int height = 5;
+    int width = 5; 
     
-    int** board = Init_game(hight,width);
-    //print board
-    for(int i=0; i++; i<hight){
-        for (int j=0; j++; j<width){
-            std::cout<<int(board[i][j]);
-        }
-        cout<<'\n';
-    }
-    
+    int** board = Init_game(height,width);
+    board = Rand_board(board, height, width);
+    Print_board(board,height,width);
+    cout<<"--------------\n";
+    board = Forward_one_step(board,height,width);
+    Print_board(board,height,width);
     cout<<"DONE";
     return (1);
 }
