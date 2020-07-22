@@ -10,8 +10,14 @@ int main()
     int width = 10; 
     
     int** board = Init_game(hight,width);
+    //print board
+    for(int i=0; i++; i<hight){
+        for (int j=0; j++; j<width){
+            std::cout<<int(board[i][j]);
+        }
+        cout<<'\n';
+    }
     
-    int** new_board = Forward_one_step(board, hight, width);  
-    
+    cout<<"DONE";
     return (1);
 }

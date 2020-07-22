@@ -21,7 +21,6 @@ int** Init_game(int length, int width){
             //initalize to all Zeros
             board[i][j] = 0;
         }
-
     }
     return(board);
 }
@@ -30,7 +29,6 @@ int** Init_game(int length, int width){
 int** Forward_one_step(int** board, int hight, int width){
     
     //grab a new board
-    new_board = Init_game(hight, width);
 
     //check update new board with old boards next state
 
