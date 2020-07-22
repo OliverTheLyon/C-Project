@@ -8,7 +8,6 @@
 #include <vector>
 #include <stdio.h>
 #include "convenience.hpp"
-#include "SOIL.h"
 
 using namespace std;
 using namespace glm;

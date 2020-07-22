@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -Wall -g
 
-GL = -l GL -l GLEW -l glfw -l SOIL 
+GL = -l GL -l GLEW -l glfw 
 
 main.o: main.cpp GOL.cpp GOL.h
 	$(CXX) $(CXXFLAGS) main.cpp GOL.cpp -o main.out
