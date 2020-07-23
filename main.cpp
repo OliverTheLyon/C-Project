@@ -2,19 +2,28 @@
 
 #include <iostream>
 #include "GOL.h"
+#include "graphical.hpp"
+
 using namespace std;
 
 int main()
 {
-    int height = 5;
-    int width = 5; 
+    //initalizing variables
+    int size = 10;
+    int** board = Init_game(size);
+    bool not_cont = false;
+
+    //Seting game board with display
+    board = Rand_board(board, size);
+    Setup();
+
+    //main Loop, updates game baord
+    while(!not_cont){
+        not_cont = Draw(board,size);
+        board = Forward_one_step(board,size);
+    }
+    cout<<"Goodbye!\n";
     
-    int** board = Init_game(height,width);
-    board = Rand_board(board, height, width);
-    Print_board(board,height,width);
-    cout<<"--------------\n";
-    board = Forward_one_step(board,height,width);
-    Print_board(board,height,width);
-    cout<<"DONE";
+    
     return (1);
 }

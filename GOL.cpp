@@ -1,38 +1,38 @@
 #include <iostream>
 
-void Print_board(int** board, int height, int width){
-    for(int i=0; i < height; i++){
-        for(int j=0; j < width; j++){
+void Print_board(int** board, int size){
+    for(int i=0; i < size; i++){
+        for(int j=0; j < size; j++){
             std::cout<<board[i][j];
         }
         std::cout<<'\n';
     }
 }
 
-int** Rand_board(int** board, int height, int width){
-    for(int i=0; i < height; i++){
-        for(int j=0; j < width; j++){
+int** Rand_board(int** board, int size){
+    for(int i=0; i < size; i++){
+        for(int j=0; j < size; j++){
             board[i][j] = rand()%2;
         }
     }
    return(board);
 }
 
-int** Init_game(int length, int width){
+int** Init_game(int size){
     
     //safty checking the inputs
-    if (!(0 < length) || !(0 < width)){
+    if (!(0 < size)){
         std::cout << "The board shape is not positive.\n";
         return(NULL);
     }
     
 
     //initalizing the board
-    int **board = (int**)malloc(length*sizeof(int*));
-    for (int i = 0; i < length; i++){    
-        board[i] = (int*)malloc(width*sizeof(int));
+    int **board = (int**)malloc(size*sizeof(int*));
+    for (int i = 0; i < size; i++){    
+        board[i] = (int*)malloc(size*sizeof(int));
         
-        for (int j = 0; j < width; j++){
+        for (int j = 0; j < size; j++){
             //initalize to all Zeros
             board[i][j] = 0;
         }
@@ -41,16 +41,16 @@ int** Init_game(int length, int width){
 }
 
 
-int** Forward_one_step(int** board, int height, int width){
+int** Forward_one_step(int** board, int size){
     
     //grab a new board
-    int** new_board = Init_game(height,width);
+    int** new_board = Init_game(size);
     int new_val = 0;
     int alive = 0;
 
     //check update new board with old boards next state
-    for(int i=0; i < height; i ++){
-        for(int j=0; j < width; j++){
+    for(int i=0; i < size; i ++){
+        for(int j=0; j < size; j++){
             new_val = board[i][j];
             
             //count alive nabours
@@ -60,7 +60,7 @@ int** Forward_one_step(int** board, int height, int width){
                     if((n_i == 0) && (n_j == 0)){
                         ;
                     } 
-                    else if (board[(n_i + i + height)%(height)][(n_j + j + width)%(width)] == 1){
+                    else if (board[(n_i + i + size)%(size)][(n_j + j + size)%(size)] == 1){
                         alive = alive + 1;
                     }
 

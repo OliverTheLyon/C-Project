@@ -8,10 +8,9 @@
  * Inputs:
  *      board       2D ARRAY OF INT     -Game board with all the cells 
  *                                       containing either a 1 or a 0.
- *      height       INTEGER             -Hight of the matrix
- *      width       INTEGER             -Width of the matrix
+ *      size        INTEGER              -Hight and width of the matrix
  */
-void Print_board(int** board, int height, int width);
+void Print_board(int** board, int size);
 
 /*
  * Name:
@@ -24,14 +23,13 @@ void Print_board(int** board, int height, int width);
  * Inputs:
  *      board       2D ARRAY OF INT     -Game board with all the cells 
  *                                       containing either a 1 or a 0.
- *      height      INTEGER             -Hight of the matrix
- *      width       INTEGER             -Width of the matrix
+ *      size        INTEGER              -Hight and width of the matrix
  *
  * Outputs:
  *      board       2D ARRAY OF INT     -Game board with either 1 or 0
  *                                       in each cell randomly assigned.     
  */
-int** Rand_board(int** board, int height, int width);
+int** Rand_board(int** board, int size);
 
 /* Name:
  *      int Init_game(int length, int width)
@@ -41,14 +39,13 @@ int** Rand_board(int** board, int height, int width);
  *      Life. The game board in initalized to all dead cells to begin the game.
  *      
  * Inputs:
- *      length      INTEGER             -Number of columns in the game board
- *      width       INTEGER             -Number of rows in the game board
+ *      size        INTEGER              -Hight and width of the matrix
  *
  * Outputs:
  *      board       2D ARRAY OF INT     -Game board size (length * width) 
  *                                       initalized to 0. 
  */
-int** Init_game(int length, int width);
+int** Init_game(int size);
 
 
 
@@ -62,13 +59,12 @@ int** Init_game(int length, int width);
  * Inputs:
  *      board       2D ARRAY OF INT     -Game board with all the cells 
  *                                       containing either a 1 or a 0.
- *      hight       INTEGER             -Hight of the matrix
- *      width       INTEGER             -Width of the matrix
+ *      size        INTEGER              -Hight and width of the matrix
  *
  * Outputs: 
  *      board       2D ARRAY OF INT     -Game board with all the cells 
  *                                       containing either a 1 or a 0.
  *
  */
-int** Forward_one_step(int** board, int hight, int width);
+int** Forward_one_step(int** board, int size);
 
