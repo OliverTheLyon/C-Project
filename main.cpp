@@ -15,6 +15,6 @@ int main()
     cout<<"--------------\n";
     board = Forward_one_step(board,height,width);
     Print_board(board,height,width);
-    cout<<"DONE";
+    cout<<"DONE" << endl;
     return (1);
 }
