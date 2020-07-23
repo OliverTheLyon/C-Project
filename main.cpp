@@ -18,7 +18,9 @@ int main()
     Setup();
 
     //main Loop, updates game baord
+	int x = 0;
     while(!not_cont){
+		cout << ++x << endl;
         not_cont = Draw(board,size);
         board = Forward_one_step(board,size);
     }

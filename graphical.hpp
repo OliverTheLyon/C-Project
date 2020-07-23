@@ -9,16 +9,6 @@
 #include <stdio.h>
 #include "convenience.hpp"
 
-using namespace std;
-using namespace glm;
-
-float width = 768;
-float height = 768;
-
-mat4 model;
-mat4 view;
-mat4 projection;
-GLFWwindow * window;
 #endif
 /**
  * A function to exit the graphical system
@@ -80,7 +70,9 @@ void Prepare_vertices(
 		int side_length, 
 		vector<vec2> &top_lefts, 
 		vector<vec2> &verts,
-		vector<unsigned short> &inds);
+		vector<vec3> i_cols,
+		vector<unsigned short> &inds,
+		vector<vec3> &cols);
 
 /* 
  * A function which draws squares to a screen in colour or greyscale depending on

@@ -11,7 +11,6 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <iostream>
-#include "SOIL.h"
 #endif
 
 using namespace glm;
@@ -73,7 +72,6 @@ GLuint LoadShaders(const char* vert_shader, const char * frag_shader){
 	GLint res = GL_FALSE;
 	int loglen;
 
-	printf("Compiling shader: %s\n", vert_shader);
 	char const * vert_src = vert_code.c_str();
 	glShaderSource(vert_ID, 1, &vert_src, NULL);
 	glCompileShader(vert_ID);
@@ -87,7 +85,6 @@ GLuint LoadShaders(const char* vert_shader, const char * frag_shader){
 		printf("%s\n", &vert_error[0]);
 	}
 
-	printf("Compiling shader: %s\n", frag_shader);
 	char const * frag_src = frag_code.c_str();
 	glShaderSource(frag_ID, 1, &frag_src, NULL);
 	glCompileShader(frag_ID);
@@ -101,7 +98,6 @@ GLuint LoadShaders(const char* vert_shader, const char * frag_shader){
 		printf("%s\n", &frag_error[0]);
 	}
 	
-	printf("Linking program\n");
 	GLuint ProgramID = glCreateProgram();
 	glAttachShader(ProgramID, vert_ID);
 	glAttachShader(ProgramID, frag_ID);

@@ -1,9 +1,9 @@
 #version 330 core
 
-layout(location = 1) vec3 colour;
+in vec3 colour;
 
-out vec3 color;
+out vec3 col;
 
 void main(){
-		color = colour;
+		col = colour;
 }
