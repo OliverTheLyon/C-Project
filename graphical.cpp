@@ -1,5 +1,6 @@
 
-
+#ifndef GRAPHICAL
+#define GRAPHICAL
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -19,18 +20,21 @@ mat4 model;
 mat4 view;
 mat4 projection;
 GLFWwindow * window;
+#endif
 
-void Exit(){
+bool Exit(){
 	glfwTerminate();
+	return true;
 }
 
-void Pause(){
+bool Pause(){
 	do{
 		if(glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS){
-			Exit();
+			return Exit();
 		}
 	}
 	while(glfwGetKey(window, GLFW_KEY_F) != GLFW_PRESS);
+	return true;
 }
 
 void Top_lefts(int** board, int side_length, vector<vec2> &top_lefts, 
@@ -76,7 +80,7 @@ void Prepare_vertices(int side_length, vector<vec2> &top_lefts, vector<vec2> &ve
 	}
 }
 
-void Draw(int** board, int side_length){
+bool Draw(int** board, int side_length){
 	vector<vec2> top_lefts;
 	vector<vec3> cols;
 	vector<vec2> verts;
@@ -132,15 +136,15 @@ void Draw(int** board, int side_length){
 	glfwSwapBuffers(window);
 	glfwPollEvents();
 
-	Pause();
+	return Pause();
 
 }
 
-void Setup(int argc, char** argv){
+bool Setup(int argc, char** argv){
 
 	if(!glfwInit()){
 		fprintf(stderr, "Failed to init GLFW\n");
-		return;
+		return false;
 	}
 
 	glfwWindowHint(GLFW_SAMPLES, 4);
@@ -153,7 +157,7 @@ void Setup(int argc, char** argv){
 	if(NULL == window){
 		fprintf(stderr, "Failed to create GLFW window.");
 		fprintf(stderr, "If you have an intel GPU, they are not 3.3 compatible.");
-		return;
+		return false;
 	}
 
 	glfwMakeContextCurrent(window);
@@ -161,12 +165,14 @@ void Setup(int argc, char** argv){
 	glewExperimental = true;
 	if(glewInit() != GLEW_OK){
 		fprintf(stderr, "Failed to init GLEW\n");
-		return;
+		return false;
 	}
+	glfwTerminate();
 
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
 	glClearColor(1,1,1, 0);
-	
+	return true;
+
 }
 
