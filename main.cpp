@@ -24,6 +24,5 @@ int main()
     }
     cout<<"Goodbye!\n";
     
-    
     return (1);
 }

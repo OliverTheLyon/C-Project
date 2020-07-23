@@ -4,8 +4,8 @@ CXXFLAGS = -Wall -g
 
 GL = -l GL -l GLEW -l glfw 
 
-main.o: main.cpp GOL.cpp GOL.h
-	$(CXX) $(CXXFLAGS) main.cpp GOL.cpp -o main.out
+main.o: main.cpp GOL.cpp graphical.o convenience.o
+	$(CXX) $(CXXFLAGS) main.cpp GOL.cpp graphical.o convenience.o -o main.out
 
 
 gtest: graphical
